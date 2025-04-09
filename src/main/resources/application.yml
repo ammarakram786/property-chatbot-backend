@@ -1,0 +1,24 @@
+spring:
+   application:
+      name: property-chatbot-backend
+
+
+   ai:
+     openai:
+        api-key: ${OPENAI_API_KEY}
+
+   datasource:
+      url: jdbc:postgresql://localhost:5432/property_chatbot
+      username: postgres
+      password: postgres
+
+
+   jpa:
+      hibernate:
+         ddl-auto: update  # Automatically updates schema without dropping data
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+   port: 8085
