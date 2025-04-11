@@ -1,5 +1,6 @@
 package com.milton.propertychatbotbackend.controller;
 
+import com.milton.propertychatbotbackend.dto.ChatDto;
 import com.milton.propertychatbotbackend.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class ChatController {
     }
 
     @PostMapping("/message")
-    public Mono<Map<String, String>> getChatResponse(@RequestBody Map<String, String> request) {
-        String userMessage = request.get("message");
+    public Mono<Map<String, String>> getChatResponse(@RequestBody ChatDto request) {
+        String userMessage = request.getMessage();
         return chatService.getChatResponse(userMessage)
                 .map(response -> Map.of("response", response));
     }

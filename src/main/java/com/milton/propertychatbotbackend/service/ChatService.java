@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
 import java.util.Map;
 
 @Service
@@ -12,7 +11,7 @@ public class ChatService {
 
     private final WebClient webClient;
 
-    @Value("${openai.api.key}")
+    @Value("${spring.ai.openai.api-key}")
     private String openAiApiKey;
 
     public ChatService(WebClient.Builder webClientBuilder) {
@@ -29,7 +28,7 @@ public class ChatService {
                 .header("Authorization", "Bearer " + openAiApiKey)
                 .header("Content-Type", "application/json")
                 .bodyValue(Map.of(
-                        "model", "gpt-4o-mini",
+                        "model", "omni-moderation-latest",
                         "prompt", prompt,
                         "max_tokens", 150
                 ))

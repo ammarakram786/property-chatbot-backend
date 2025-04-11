@@ -2,6 +2,9 @@ spring:
    application:
       name: property-chatbot-backend
 
+   quartz:
+      job-store-type: memory
+
 
    ai:
      openai:
@@ -15,10 +18,28 @@ spring:
 
    jpa:
       hibernate:
-         ddl-auto: update  # Automatically updates schema without dropping data
+         ddl-auto: create
       properties:
          hibernate:
-            dialect: org.hibernate.dialect.MySQLDialect
+            dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
    port: 8085
+
+
+
+
+
+app:
+   jwt-secret: daf66e01593f61a15b857cf433aae03a005812b31234e149036bcc8dee755dbb
+   jwt-expiration-milliseconds: 604800000
+
+logging:
+   level:
+      com.milton.propertychatbotbackend: DEBUG
+      org.springframework.security: DEBUG
+
+
+
+
+
