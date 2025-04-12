@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Primary
-//@Slf4j
+@Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository usersRepository;
@@ -28,7 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = usersRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("User not found with username or email: "+ usernameOrEmail));
-//        log.info("User found: {}", user);
+        log.info("User found: {}", user);
 
         Set<GrantedAuthority> authorities = user
                 .getRoles()
