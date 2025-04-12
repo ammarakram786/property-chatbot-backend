@@ -1,4 +1,26 @@
 package com.milton.propertychatbotbackend.dto;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class AppointmentDto {
+
+    private Long id;
+    private String propertyAddress;
+    private String tenantName;
+    private String landlordName;
+    private LocalDateTime appointmentTime;
+    private String landlordContact;
+    private String tenantContact;
+
+
 }
